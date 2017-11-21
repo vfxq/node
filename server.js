@@ -2,7 +2,7 @@ var db = require('db');
 db.connect();
 
 var User = require('./user');
-
+var log = require('./logger')(module);
 
 function run(){
 	var Vasya = new User('Vasya')
@@ -10,7 +10,7 @@ function run(){
 
 	Vasya.hello(Petya)
 
-	console.log("server: ", db.getPhrase("Run succesfull"))
+	log("server: ", db.getPhrase("Run succesfull"))
 }
 
 if(module.parent){
